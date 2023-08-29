@@ -39,7 +39,7 @@ ProductRouter.post('/create', admin_auth_1.default, (req, res) => __awaiter(void
 }));
 ProductRouter.put("/update/:id", admin_auth_1.default, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        let product = yield product_1.default.findOne({ _id: req.params.id });
+        let product = yield product_1.default.findOne({ id: req.params.id });
         if (!product)
             return res.status(400).json({
                 success: false,

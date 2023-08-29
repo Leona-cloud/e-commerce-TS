@@ -40,7 +40,7 @@ ProductRouter.put("/update/:id", AdminAuth, async (req: Request, res: Response) 
 
     try {
 
-        let product = await Product.findOne({_id: req.params.id});
+        let product = await Product.findOne({ id: req.params.id});
 
         if (!product) return res.status(400).json({
             success: false,

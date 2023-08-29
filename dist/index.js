@@ -9,12 +9,14 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const customer_authentication_1 = __importDefault(require("./src/routes/customer-authentication"));
 const admin_authentication_1 = __importDefault(require("./src/routes/admin-authentication"));
 const create_products_1 = __importDefault(require("./src/routes/create-products"));
+const create_order_1 = __importDefault(require("./src/routes/create-order"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use('/api/auth/customer', customer_authentication_1.default);
 app.use('/api/auth/admin', admin_authentication_1.default);
 app.use('/api/product', create_products_1.default);
+app.use('/api/order', create_order_1.default);
 mongoose_1.default.connect(process.env.DB_CONNECT)
     .then(() => console.log("connected to db" + '' + `${process.env.DB_CONNECT}`))
     .catch((err) => console.error("unable to connect", err));
