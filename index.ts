@@ -1,7 +1,9 @@
 import express, { Request, Response } from 'express';
 import 'dotenv/config'
 import  mongoose from 'mongoose';
-import AuthRouter from './src/routes/authentication';
+import AuthRouter from './src/routes/customer-authentication';
+import AdminAuthRouter from './src/routes/admin-authentication';
+import ProductRouter from './src/routes/create-products';
 
 
 const app =  express();
@@ -12,7 +14,9 @@ app.use(express.urlencoded({extended: true}));
 
 
 //routes
-app.use('/api/auth', AuthRouter);
+app.use('/api/auth/customer', AuthRouter);
+app.use('/api/auth/admin', AdminAuthRouter);
+app.use('/api/product', ProductRouter)
 
 
 // connect to db

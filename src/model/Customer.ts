@@ -47,7 +47,7 @@ const customerModel: mongoose.Schema<Customer> = new mongoose.Schema({
 });
 
 customerModel.methods.generateAuthToken  = function(){
-    const token: string = sign({_id: this._id}, process.env.jwtPrivateKey as string, { expiresIn: process.env.expiresAt });
+    const token: string = sign({_id: this._id}, process.env.jwtPrivateKey as string, { expiresIn: process.env.expiresAt as string });
     return {
         token: token
     };
